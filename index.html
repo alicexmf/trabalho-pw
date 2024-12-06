@@ -1,0 +1,268 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Exemplo de bootstrap </title>
+
+  <!-- Imports -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+</head>
+
+<body>
+
+  <div id="barra-cima"></div>
+
+  <br>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $('#barra-cima').load("/barra-cima.html");
+      $('#barra-baixo').load("/barra-baixo.html");
+
+    });
+  </script>
+
+<div class="container">
+  <div class="card custom-card">
+      <div class="card-body">
+          <h5 class="card-title">Elementos químicos</h5>
+          <p class="card-text">Os elementos químicos são um conjunto de átomos com o mesmo número atômico, ou seja, possuem igual quantidade de prótons no núcleo.
+               Essa característica define um elemento químico, o diferencia dos demais e determina suas propriedades físico-químicas.  <br>
+              Saiba que o Hidrogênio, é o elemento químico fundamental no universo! <br>
+
+               Para o planeta Terra é de vital importância, já que em conjunto com o oxigênio forma a principal fonte da vida: a água.</p>
+      </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <img src="/img/carbono.jpg" class="card-img-top" alt="Imagem 1">
+              <div class="card-body">
+                  <h5 class="card-title">Carbono</h5>
+                  <p class="card-text">Elemento fundamental para a vida como a conhecemos.</p>
+                  <a href="carbono.html" class="btn btn-primary">Saiba Mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <img src="/img/nitrogenio05.pgn.png" class="card-img-top" alt="Imagem 2">
+              <div class="card-body">
+                  <h5 class="card-title">Nitrogênio</h5>
+                  <p class="card-text">Componente essencial das proteínas e ácidos nucleicos.</p>
+                  <a href="nitrogenio.html" class="btn btn-primary">Saiba Mais</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4">
+              <img src="/img/oxigenio04.jpg" class="card-img-top" alt="Imagem 3">
+              <div class="card-body">
+                  <h5 class="card-title">Oxigênio</h5>
+                  <p class="card-text">Elemento essencial para a respiração de organismos aeróbicos.</p>
+                  <a href="oxigenio.html" class="btn btn-primary">Saiba Mais</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1>Informações Químicas</h1>
+  <button class="element-button" onclick="showInfo('acidos')">Ácidos</button>
+  <button class="element-button" onclick="showInfo('alcanos')">Alcanos</button>
+  <button class="element-button" onclick="showInfo('aldeido')">Aldeído</button>
+  <button class="element-button" onclick="showInfo('atomo')">Átomo</button>
+  <button class="element-button" onclick="showInfo('balanca')">Balança</button>
+
+  <button class="element-button" onclick="showInfo('calcinacao')">Calcinação</button>
+  <button class="element-button" onclick="showInfo('cetona')">Cetona</button>
+  <button class="element-button" onclick="showInfo('cloroformio')">Clorofórmio</button>
+  <button class="element-button" onclick="showInfo('composto')">Composto</button>
+  <button class="element-button" onclick="showInfo('corrosao')">Corrosão</button>
+
+  <button class="element-button" onclick="showInfo('densidade')">Densidade</button>
+  <button class="element-button" onclick="showInfo('digestor')">Digestor</button>
+  <button class="element-button" onclick="showInfo('etilenoglicol')">Etileno-glicol</button>
+  <button class="element-button" onclick="showInfo('solubilidade')">Solubilidade</button>
+  <button class="element-button" onclick="showInfo('surfatantes')">Surfatantes</button>
+  <button class="element-button" onclick="showInfo('titulacao')">Titulação</button>
+  <button class="element-button" onclick="showInfo('turbidimetria')">Turbidimetria</button>
+  </div>
+
+  <div class="info" id="acidos">
+    <h3>Ácidos</h3>
+    <p>Um ácido pode ser descrito como uma substância que libera ou produz íons de
+      hidrogênio (H+) quando dissolvida em água. As fórmulas dos ácidos contêm um ou
+      mais átomos de hidrogênio e um grupo aniônico. Os ânions cujo nome termina em
+      "-eto" formam ácidos com uma terminação em "-ico"
+      </p>
+  </div>
+
+
+  <div class="info" id="alcanos">
+    <h3>Alcanos</h3>
+    <p>Um ácido pode ser descrito como uma substância que libera ou produz íons de
+      hidrogênio (H+) quando dissolvida em água. As fórmulas dos ácidos contêm um ou
+      mais átomos de hidrogênio e um grupo aniônico. Os ânions cujo nome termina em
+      "-eto" formam ácidos com uma terminação em "-ico"
+      </p>
+  </div>
+
+
+  <div class="info" id="aldeido">
+    <h3>Aldeído</h3>
+    <p>Os aldeídos são compostos orgânicos que apresentam o grupo carbonila na extremidade da cadeia.A numeração da cadeia dos aldeídos sempre começa da extremiCH3 CH3 dade que contém o grupo carbonila, por isso não é preciso indicar o 1.52 número do átomo de carbono que contém o grupo funcional.
+  </p>
+  </div>
+</div>
+</div>
+
+
+<div class="info" id="atomo">
+  <h3>Átomo</h3>
+  <p>Rutherford idealizou um modelo para o átomo, análogo ao modelo do sistema planetário. Nele, o átomo é constituído por duas regiões diferentes: núcleo e eletrosfera. No núcleo estariam concentradas praticamente toda a massa e a carga positiva do átomo, o que explicaria o partículas a incidentes fato de algumas partículas alfa – também com carga positiva – serem refletidas; afinal, só as partículas que interagissem diretamente com o núcleo sofreriam repulsão. (Mortimer, Eduardo Fleury
+      Química : ensino médio 2013) 
+    </p>
+</div>
+
+<div class="info" id="balanca">
+  <h3>Balança</h3>
+  <p>A balança de precisão permite determinar a massa de alguns poucos miligramas.
+    Bicarbonatos
+    A presença de íons bicarbonato (HCO32) está relacionada à interação do gás carbônico com a água.
+    </p>
+</div>
+
+<div class="info" id="calcinacao">
+  <h3>Calcinação</h3>
+  <p>A calcinação é a etapa final da obtenção de alumina e envolve a transformação do hidrato em uma mistura cristalina de formas alotrópicas de Al2O3. Inicialmente, o hidrato recém-chegado da precipitação é lavado e filtrado, seguindo então para secagem e calcinação.
+ A reação de calcinação é representada pela equação a seguir: 2 Al2O3 ? 3 H2O (s) → Al2O3 (s) 1 3 H2O
+    </p>
+</div>
+
+<div class="info" id="cetona">
+  <h3>Cetona</h3>
+  <p>As cetonas , por sua vez, são compostos orgânicos que apresentam o grupo carbonila no meio da cadeia carbônica, ligado a dois grupos orgânicos. Fórmula geral das cetonas R1 – CO – R2 R1 – e – R2 são grupos orgânicos que podem ser diferentes ou idênticos (como no caso da acetona). Já no caso das cetonas, o sufixo utilizado é ona.  O nome químico da acetona, segundo a mesma nomenclatura, é propanona, em que o prefixo prop 4 3 2 1 CH3 CH CH CHO indica que a cadeia do composto apresenta três átomos de carbono.  Já nas cetonas é necessário indicar a posição da carbonila na cadeia carbônica, que pode variar. Isso não ocorre no caso 1 5 4 3 2 CH3 CH CH CO CH3 da acetona (propanona), como vimos, porque a posição da carbonila, numa cetona com três átomos de carbono, só pode ser CH3 CH3 a posição 2.  Se a carbonila estivesse na posição 1, o composto Figura 1.53 seria um aldeído e não uma cetona, e seu nome seria propanal.  
+
+    </p>
+</div>
+
+
+<div class="info" id="cloroformio">
+  <h3>Clorofórmio</h3>
+  <p>Os alcanos são solúveis em solventes apolares, como éter, benzeno e clorofórmio , e insolúveis em água e outros solventes polares.
+    </p>
+</div>
+
+<div class="info" id="composto">
+  <h3>Composto</h3>
+  <p>Um composto é um produto privilegiado ao qual a natureza confere proporções fixas.
+    </p>
+</div>
+
+
+
+<div class="info" id="corrosao">
+  <h3>Corrosão</h3>
+  <p>" Corrosão " é um termo genérico aplicado aos processos pelos quais os metais são transformados em óxidos ou outros compostos.  Isso provoca a deterioração gradativa dos metais. Embora mecanismos associados à corrosão do ferro não estejam ainda completamente esclarecidos, é certo que envolvem oxidação por meio de agentes oxidantes.
+    </p>
+</div>
+
+
+
+<div class="info" id="densidade">
+  <h3>Densidade</h3>
+  <p>Concluímos que a forma dos objetos tem influência na flutuação apenas em algumas situações.Entretanto, o fato de um objeto ser cúbico, esférico, grande, pequeno, etc. não vai, necessariamente, influenciar na flutuação.A densidade é, portanto, uma propriedade útil. Com ela, podemos reconhecer materiais (a mineralogia a emprega na identificação de minerais), verificar a autenticidade de objetos feitos com materiais nobres, explicar a flutuação de objetos pesados (como os navios) e separar materiais com densidade diferente (como o ouro e o cascalho).Outra importante consideração é que o valor da densidade de cada material depende da temperatura em que ela foi medida.Assim, todos os valores de densidade a que nos referimos são os medidos à temperatura ambiente.Com o aumento da temperatura, a maioria dos materiais sofre um processo de dilatação, que ocasiona o aumento de seu volume.Consequentemente a densidade diminui. A mudança de estado físico também provoca alterações na densidade dos materiais. Por exemplo, a água no estado gasoso é menos densa que no estado líquido, e o gelo e a água líquida, embora constituídos da mesma substância – água – não têm a mesma densidade. Isso é importante porque, apesar de a densidade ser uma propriedade específica dos materiais, uma mesma substância pode apresentar diferentes valores de densidade, dependendo do estado físico e da temperatura em que se mede a densidade.
+    </p>
+</div>
+
+<div class="info" id="digestor">
+  <h3>Digestor</h3>
+  <p>Equipamento de agitação para determinação do índice de preparo com 2 ou 4 provas, regulado para girar a 50 - 60 rpm.
+    </p>
+</div>
+
+<div class="info" id="etilenoglicol">
+  <h3>Etileno-glicol</h3>
+  <p>1,2-etanodiol.
+    </p>
+</div>
+
+
+<div class="info" id="solubilidade">
+  <h3>Solubilidade</h3>
+  <p>A solubilidade é uma propriedade específica que depende da natureza das substâncias envolvidas (soluto e solvente) e da temperatura do sistema. Por causa da extensa utilização desse tipo de propriedade, para um grande número de substâncias o valor da solubilidade em várias temperaturas já foi determinado com grande precisão.  As tabelas de solubilidade são bastante específicas: para cada substância elas fornecem um valor de solubilidade em água, álcool e outros líquidos mais comuns, em várias temperaturas.  A solubilidade é normalmente definida como a quantidade máxima (em massa) de determinada substância que é possível dissolver num volume determinado do solvente. Para uma temperatura definida, a solubilidade de uma substância sólida pode ser expressa em gramas de soluto por litro de solução (g/L) ou em gramas de soluto por centímetro cúbico de solução (g/cm3).  Como você deve ter notado, a solubilidade pode apresentar as mesmas unidades de grandeza da densidade (g/cm3).  A diferença é que a densidade expressa a massa por unidade de volume para um único material (uma substância ou uma mistura). Já a solubilidade indica a quantidade, em massa, de um soluto que é possível dissolver num determinado volume de solução.Com relação à influência da temperatura na solubilidade de uma substância, um aspecto importante merece ser destacado: observamos, na maioria das substâncias, um aumento da solubilidade com o aumento da temperatura. Essa, entretanto, é apenas uma regra geral.Com algumas substâncias acontece exatamente o inverso, ou seja, uma diminuição da solubilidade com o aumento da temperatura.
+    </p>
+</div>
+
+
+<div class="info" id="surfatantes">
+  <h3>Surfatantes</h3>
+  <p>Os surfatantes são constituídos por uma parte hidrófila, geralmente iônica, e uma parte lipofílica formada por hidrocarbonetos com oito a dezoito átomos de carbono, linear ou ligeiramente ramificada, contendo, na maioria dos produtos comercializados, um anel benzênico substituindo alguns átomos de cadeia. 
+    </p>
+</div>
+
+
+
+<div class="info" id="titulacao">
+  <h3>Titulação</h3>
+  <p>A solução de concentração exatamente conhecida é denominada solução padrão e, a operação que determina o volume de solução padrão necessário para reagir com a solução problema é chamada titulação. 
+    </p>
+</div>
+
+
+
+<div class="info" id="turbidimetria">
+  <h3>Turbidimetria</h3>
+  <p>Quantificação em espectrofotômetro ou colorímetro a 660 nm, uma vez que neste comprimento de onda, a cor geralmente parda dos meios de cultura não interfere com os resultados.
+    </p>
+</div>
+
+
+<script>
+  // Função que exibe as informações de um elemento
+  function showInfo(elemento) {
+    // Primeiro, esconder todas as informações
+    var infos = document.querySelectorAll('.info');
+    infos.forEach(function(info) {
+      info.classList.remove('active');
+    });
+
+    // Exibir as informações do elemento clicado
+    var elementoInfo = document.getElementById(elemento);
+    if (elementoInfo) {
+      elementoInfo.classList.add('active');
+    }
+  }
+</script>
+
+
+
+  <div id="barra-baixo"></div>
+
+</body>
+
+</html>

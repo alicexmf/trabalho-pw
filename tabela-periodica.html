@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Periódica Interativa</title>
+    <!-- Imports -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+
+    <div id="barra-cima"></div>
+
+
+</head>
+
+<body>
+
+    <br>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#barra-cima').load("/barra-cima.html");
+            $('#barra-baixo').load("/barra-baixo.html");
+
+        });
+    </script>
+    <center>
+        <input type="text" id="search-bar" placeholder="Pesquisar elemento..." class="w-50">
+    </center>
+    <div class="periodic-table" id="periodic-table">
+        <!-- Elements will be generated dynamically -->
+    </div>
+
+    <div class="legend">
+        <div class="actinide"></div><span>Actinídeos</span>
+        <div class="alkali"></div><span>Metais Alcalinos</span>
+        <div class="alkaline-earth"></div><span>Metais Alcalino-Terrosos</span>
+        <div class="halogen"></div><span>Halogênios</span>
+        <div class="noble-gas"></div><span>Gases Nobres</span>
+        <div class="transition-metal"></div><span>Metais de Transição</span>
+        <div class="lanthanide"></div><span>Lantanídeos</span>
+        <div class="metalloid"></div><span>Metaloides</span>
+        <div class="nonmetal"></div><span>Não-Metais</span>
+        <div class="other"></div><span>Outros</span>
+    </div>
+
+    <script>
+        const elements = [
+            { symbol: 'H', name: 'Hidrogênio', category: 'nonmetal' },
+            { symbol: 'He', name: 'Hélio', category: 'noble-gas' },
+            { symbol: 'Li', name: 'Lítio', category: 'alkali' },
+            { symbol: 'Be', name: 'Berílio', category: 'alkaline-earth' },
+            { symbol: 'B', name: 'Boro', category: 'metalloid' },
+            { symbol: 'C', name: 'Carbono', category: 'nonmetal' },
+            { symbol: 'N', name: 'Nitrogênio', category: 'nonmetal' },
+            { symbol: 'O', name: 'Oxigênio', category: 'nonmetal' },
+            { symbol: 'F', name: 'Flúor', category: 'halogen' },
+            { symbol: 'Ne', name: 'Neônio', category: 'noble-gas' },
+            { symbol: 'Na', name: 'Sódio', category: 'alkali' },
+            { symbol: 'Mg', name: 'Magnésio', category: 'alkaline-earth' },
+            { symbol: 'Al', name: 'Alumínio', category: 'metalloid' },
+            { symbol: 'Si', name: 'Silício', category: 'metalloid' },
+            { symbol: 'P', name: 'Fósforo', category: 'nonmetal' },
+            { symbol: 'S', name: 'Enxofre', category: 'nonmetal' },
+            { symbol: 'Cl', name: 'Cloro', category: 'halogen' },
+            { symbol: 'Ar', name: 'Argônio', category: 'noble-gas' },
+            { symbol: 'K', name: 'Potássio', category: 'alkali' },
+            { symbol: 'Ca', name: 'Cálcio', category: 'alkaline-earth' },
+            { symbol: 'Sc', name: 'Escândio', category: 'transition-metal' },
+            { symbol: 'Ti', name: 'Titânio', category: 'transition-metal' },
+            { symbol: 'V', name: 'Vanádio', category: 'transition-metal' },
+            { symbol: 'Cr', name: 'Cromo', category: 'transition-metal' },
+            { symbol: 'Mn', name: 'Manganês', category: 'transition-metal' },
+            { symbol: 'Fe', name: 'Ferro', category: 'transition-metal' },
+            { symbol: 'Co', name: 'Cobalto', category: 'transition-metal' },
+            { symbol: 'Ni', name: 'Níquel', category: 'transition-metal' },
+            { symbol: 'Cu', name: 'Cobre', category: 'transition-metal' },
+            { symbol: 'Zn', name: 'Zinco', category: 'transition-metal' },
+            { symbol: 'Ga', name: 'Gálio', category: 'metalloid' },
+            { symbol: 'Ge', name: 'Germânio', category: 'metalloid' },
+            { symbol: 'As', name: 'Arsênio', category: 'metalloid' },
+            { symbol: 'Se', name: 'Selênio', category: 'nonmetal' },
+            { symbol: 'Br', name: 'Bromo', category: 'halogen' },
+            { symbol: 'Kr', name: 'Criptônio', category: 'noble-gas' },
+            { symbol: 'Rb', name: 'Rubídio', category: 'alkali' },
+            { symbol: 'Sr', name: 'Estrôncio', category: 'alkaline-earth' },
+            { symbol: 'Y', name: 'Ítrio', category: 'transition-metal' },
+            { symbol: 'Zr', name: 'Zirconium', category: 'transition-metal' },
+            { symbol: 'Nb', name: 'Nióbio', category: 'transition-metal' },
+            { symbol: 'Mo', name: 'Molibdênio', category: 'transition-metal' },
+            { symbol: 'Tc', name: 'Tecnécio', category: 'transition-metal' },
+            { symbol: 'Ru', name: 'Rutênio', category: 'transition-metal' },
+            { symbol: 'Rh', name: 'Ródio', category: 'transition-metal' },
+            { symbol: 'Pd', name: 'Paládio', category: 'transition-metal' },
+            { symbol: 'Ag', name: 'Prata', category: 'transition-metal' },
+            { symbol: 'Cd', name: 'Cádmio', category: 'transition-metal' },
+            { symbol: 'In', name: 'Índio', category: 'metalloid' },
+            { symbol: 'Sn', name: 'Estanho', category: 'metalloid' },
+            { symbol: 'Sb', name: 'Antimônio', category: 'metalloid' },
+            { symbol: 'I', name: 'Iodo', category: 'halogen' },
+            { symbol: 'Xe', name: 'Xenônio', category: 'noble-gas' },
+            { symbol: 'Cs', name: 'Césio', category: 'alkali' },
+            { symbol: 'Ba', name: 'Bário', category: 'alkaline-earth' },
+            { symbol: 'La', name: 'Lantânio', category: 'lanthanide' },
+            { symbol: 'Ce', name: 'Cério', category: 'lanthanide' },
+            { symbol: 'Pr', name: 'Praseodímio', category: 'lanthanide' },
+            { symbol: 'Nd', name: 'Neodímio', category: 'lanthanide' },
+            { symbol: 'Pm', name: 'Promécio', category: 'lanthanide' },
+            { symbol: 'Sm', name: 'Samário', category: 'lanthanide' },
+            { symbol: 'Eu', name: 'Euprósio', category: 'lanthanide' },
+            { symbol: 'Gd', name: 'Gadolínio', category: 'lanthanide' },
+            { symbol: 'Tb', name: 'Térbio', category: 'lanthanide' },
+            { symbol: 'Dy', name: 'Disprósio', category: 'lanthanide' },
+            { symbol: 'Ho', name: 'Hólmio', category: 'lanthanide' },
+            { symbol: 'Er', name: 'Érbio', category: 'lanthanide' },
+            { symbol: 'Tm', name: 'Túlio', category: 'lanthanide' },
+            { symbol: 'Yb', name: 'Itérbio', category: 'lanthanide' },
+            { symbol: 'Lu', name: 'Lutécio', category: 'lanthanide' },
+            { symbol: 'Hf', name: 'Háfnio', category: 'transition-metal' },
+            { symbol: 'Ta', name: 'Tântalo', category: 'transition-metal' },
+            { symbol: 'W', name: 'Wolframio', category: 'transition-metal' },
+            { symbol: 'Re', name: 'Rênio', category: 'transition-metal' },
+            { symbol: 'Os', name: 'Ósmio', category: 'transition-metal' },
+            { symbol: 'Ir', name: 'Irídio', category: 'transition-metal' },
+            { symbol: 'Pt', name: 'Platina', category: 'transition-metal' },
+            { symbol: 'Au', name: 'Ouro', category: 'transition-metal' },
+            { symbol: 'Hg', name: 'Mercúrio', category: 'transition-metal' },
+            { symbol: 'Tl', name: 'Talio', category: 'metalloid' },
+            { symbol: 'Pb', name: 'Chumbo', category: 'metalloid' },
+            { symbol: 'Bi', name: 'Bismuto', category: 'metalloid' },
+            { symbol: 'Po', name: 'Polônio', category: 'nonmetal' },
+            { symbol: 'At', name: 'Ástato', category: 'halogen' },
+            { symbol: 'Rn', name: 'Radônio', category: 'noble-gas' },
+            { symbol: 'Fr', name: 'Frâncio', category: 'alkali' },
+            { symbol: 'Ra', name: 'Rádio', category: 'alkaline-earth' },
+            { symbol: 'Ac', name: 'Actínio', category: 'actinide' },
+            { symbol: 'Th', name: 'Tório', category: 'actinide' },
+            { symbol: 'Pa', name: 'Protactínio', category: 'actinide' },
+            { symbol: 'U', name: 'Urânio', category: 'actinide' },
+            { symbol: 'Np', name: 'Netúnio', category: 'actinide' },
+            { symbol: 'Pu', name: 'Plutônio', category: 'actinide' },
+            { symbol: 'Am', name: 'Amerício', category: 'actinide' },
+            { symbol: 'Cm', name: 'Curió', category: 'actinide' },
+            { symbol: 'Bk', name: 'Berkélio', category: 'actinide' },
+            { symbol: 'Cf', name: 'Califórnio', category: 'actinide' },
+            { symbol: 'Es', name: 'Einstênio', category: 'actinide' },
+            { symbol: 'Fm', name: 'Férmio', category: 'actinide' },
+            { symbol: 'Md', name: 'Mendelévio', category: 'actinide' },
+            { symbol: 'No', name: 'Nobelium', category: 'actinide' },
+            { symbol: 'Lr', name: 'Lawrêncio', category: 'actinide' },
+            { symbol: 'Rf', name: 'Rutherfórdio', category: 'other' },
+            { symbol: 'Db', name: 'Dúbnio', category: 'other' },
+            { symbol: 'Sg', name: 'Seabórgio', category: 'other' },
+            { symbol: 'Bh', name: 'Bóhrio', category: 'other' },
+            { symbol: 'Hs', name: 'Hássio', category: 'other' },
+            { symbol: 'Mt', name: 'Meitnério', category: 'other' },
+            { symbol: 'Ds', name: 'Darmstádio', category: 'other' },
+            { symbol: 'Rg', name: 'Roentgênio', category: 'other' },
+            { symbol: 'Cn', name: 'Copernício', category: 'other' },
+            { symbol: 'Uut', name: 'Nihônio', category: 'other' },
+            { symbol: 'Fl', name: 'Fleróvio', category: 'other' },
+            { symbol: 'Uup', name: 'Moscóvio', category: 'other' },
+            { symbol: 'Lv', name: 'Livermório', category: 'other' },
+            { symbol: 'Uus', name: 'Tennessine', category: 'other' },
+            { symbol: 'Uuo', name: 'Oganessônio', category: 'other' }
+        ];
+
+        const periodicTableContainer = document.getElementById('periodic-table');
+
+        // Generate periodic table elements
+        elements.forEach((element, index) => {
+            const elementDiv = document.createElement('div');
+            elementDiv.classList.add('element', element.category);
+            elementDiv.textContent = element.symbol;
+            elementDiv.setAttribute('data-name', element.name);
+            periodicTableContainer.appendChild(elementDiv);
+        });
+
+        // Search functionality
+        const searchBar = document.getElementById('search-bar');
+
+        searchBar.addEventListener('input', function () {
+            const query = searchBar.value.toLowerCase();
+            const elementsDivs = document.querySelectorAll('.element');
+
+            elementsDivs.forEach((el) => {
+                const elementName = el.getAttribute('data-name').toLowerCase();
+                if (elementName.includes(query)) {
+                    el.classList.add('highlight');
+                    el.classList.remove('inactive');
+                } else {
+                    el.classList.add('inactive');
+                    el.classList.remove('highlight');
+                }
+            });
+        });
+
+        // Reset highlight when clicking on the table
+        periodicTableContainer.addEventListener('click', function () {
+            const elementsDivs = document.querySelectorAll('.element');
+            elementsDivs.forEach(el => {
+                el.classList.remove('highlight');
+                el.classList.remove('inactive');
+            });
+        });
+    </script>
+
+    <div id="barra-baixo" class="position-absolute bottom-0 w-100"></div>
+
+
+    <style>
+        .body-two {
+            background-color: #747b6f;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #search-bar {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            grid-gap: 5px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+
+        .element {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .element:hover {
+            opacity: 0.8;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .legend div {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        #legend {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .actinide {
+            background-color: #FF6347;
+        }
+
+        .alkali {
+            background-color: #F0A000;
+        }
+
+        .alkaline-earth {
+            background-color: #98FB98;
+        }
+
+        .halogen {
+            background-color: #32CD32;
+        }
+
+        .noble-gas {
+            background-color: #00BFFF;
+        }
+
+        .transition-metal {
+            background-color: #FFD700;
+        }
+
+        .lanthanide {
+            background-color: #8A2BE2;
+        }
+
+        .metalloid {
+            background-color: #DAA520;
+        }
+
+        .nonmetal {
+            background-color: #B0E0E6;
+        }
+
+        .other {
+            background-color: #808080;
+        }
+
+        .highlight {
+            background-color: yellow !important;
+        }
+
+        .inactive {
+            background-color: gray !important;
+        }
+    </style>
+
+</body>
+
+</html>
